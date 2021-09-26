@@ -1,6 +1,6 @@
-# Rust by example
+# Rust language and patterns by example
 
-Learn Rust by example in yumi way. 
+Learn Rust by examples in Yumi-coder way.
 
 - memory_safety: learn about borrowing, ownership, copy and clone.
 
