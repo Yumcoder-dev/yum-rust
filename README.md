@@ -1,3 +1,3 @@
 # Rust by example
 
-Learn Rust by example un yumi way
+Learn Rust by example in yumi way
