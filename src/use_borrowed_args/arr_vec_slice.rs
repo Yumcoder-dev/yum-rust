@@ -14,7 +14,6 @@ fn print_array_size(arr: [i32; 5]) {
     );
 }
 
-#[allow(dead_code)]
 pub fn def_arr() {
     let m_array = [10, 20, 30, 40, 50];
     println!("array {:?}", m_array);
