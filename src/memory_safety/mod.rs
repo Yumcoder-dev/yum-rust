@@ -33,4 +33,5 @@
 // disallow both aliasing and mutation at the same time,
 // and Rust achieves this through ownership and borrowing.
 pub mod borrowing;
+pub mod move_copy_clone;
 pub mod ownership;
