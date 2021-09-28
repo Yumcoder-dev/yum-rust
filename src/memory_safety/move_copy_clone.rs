@@ -101,18 +101,18 @@ mod tests {
     // and may or may not be expensive. In order to enforce these characteristics, Rust does not allow you
     // to reimplement Copy, but you may reimplement Clone and run arbitrary code
     #[derive(Debug, Clone, Copy, PartialEq)]
-    pub struct PointCloneAndCopy {
-        pub x: f64,
+    struct PointCloneAndCopy {
+        x: f64,
     }
     #[derive(Debug, Clone, PartialEq)]
-    pub struct PointCloneOnly {
-        pub x: f64,
+    struct PointCloneOnly {
+        x: f64,
     }
     #[test]
     fn test_copy() {
         let p1 = PointCloneAndCopy { x: 0. };
         let p2 = p1; // because type has `Copy`, it gets copied automatically.
-        println!("{:p} {:p}", &p1, &p2);
+                     // println!("{:p} {:p}", &p1, &p2);
         assert_eq!(p1, p2);
     }
     #[test]
@@ -120,7 +120,7 @@ mod tests {
         let p1 = PointCloneOnly { x: 0. };
         // let p2 = p1; // because type has no `Copy`, this is a move instead.
         let p2 = p1.clone();
-        println!("{:p} {:p}", &p1, &p2);
+        // println!("{:p} {:p}", &p1, &p2);
         assert_eq!(p1, p2);
     }
 
@@ -145,7 +145,7 @@ mod tests {
         // Vec implements Clone, but not Copy
         let v = vec![10, 20, 30, 40, 50];
         let v1 = v.clone(); // ok since Vec implements Clone
-        println!("v: {:p}, v1:{:p}", &v, &v1);
+                            // println!("v: {:p}, v1:{:p}", &v, &v1);
         assert_eq!(v, v1);
     }
 }

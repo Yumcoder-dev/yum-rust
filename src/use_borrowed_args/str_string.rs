@@ -14,12 +14,14 @@
 // such as &str, no copy is made.
 //////////////////////////////////////////////////////////
 mod test {
+    #[allow(unused_imports)]
     use std::str::FromStr;
 
+    #[allow(dead_code)]
     fn print_me_str(msg: &str) {
         println!("{}", msg);
     }
-
+    #[allow(dead_code)]
     fn print_me_string(msg: String) {
         println!("{}", msg);
     }
@@ -40,7 +42,7 @@ mod test {
         let atomically_counted_string = std::sync::Arc::new("hello world".to_string());
         print_me_str(&atomically_counted_string);
     }
-
+    #[allow(dead_code)]
     fn test_print_me_string() {
         let message = "hello world".to_string();
         print_me_string(message);
@@ -49,15 +51,17 @@ mod test {
         // print_me_string(str); // error
         print_me_string(str.to_string());
     }
-
+    #[allow(dead_code)]
     struct Person<'a> {
         name: &'a str,
     }
 
     impl<'a> Person<'a> {
+        #[allow(dead_code)]
         fn new(name: &'a str) -> Self {
             Self { name }
         }
+        #[allow(dead_code)]
         fn greet(&self) {
             println!("Hello, my name is {}", self.name);
         }

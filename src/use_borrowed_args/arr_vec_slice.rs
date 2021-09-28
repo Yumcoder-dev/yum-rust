@@ -1,6 +1,8 @@
 mod test {
+    #[allow(unused)]
     use std::mem::{size_of, size_of_val};
 
+    #[allow(dead_code)]
     fn print_array_size(arr: [i32; 5]) -> usize {
         // println!(
         //     "Array size in print_array_size function: {}",

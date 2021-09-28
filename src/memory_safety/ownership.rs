@@ -1,6 +1,11 @@
 // When you create a new object in Rust, the assigned variable becomes the owner of the object.
-// For example in the following Rust code, variable v owns the Vec instance:
+
 mod test {
+    #[allow(dead_code)]
+    fn get_ownership_in_fn_call(input_v: Vec<i32>) -> usize {
+        input_v.len()
+    }
+
     #[test]
     fn def_ownership() {
         // when v goes out of scope, the Vec is dropped.
@@ -15,9 +20,6 @@ mod test {
         // Although C++ too has move semantics, it doesn't prevent you from introducing a use-after-move bug.
     }
 
-    fn get_ownership_in_fn_call(input_v: Vec<i32>) -> usize {
-        input_v.len()
-    }
     #[test]
     fn def_ownership_with_fn() {
         let v: Vec<i32> = Vec::new();
