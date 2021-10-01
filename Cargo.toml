@@ -10,5 +10,15 @@ criterion = "0.3"
 
 [[bench]]
 name = "simple_bench"
-path = "src/rust_lang/simple_bench.rs"
+path = "./src/rust_lang/simple_bench.rs"
+harness = false
+
+[[bench]]
+name = "inline_fn"
+path = "./src/rust_lang/inline_fn.rs"
+harness = false
+
+[[bench]]
+name = "concatenating_string"
+path = "./src/rust_lang/concatenating_string.rs"
 harness = false

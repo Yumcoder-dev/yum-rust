@@ -9,7 +9,7 @@
 // A String type can be magically turned into a &str and
 // type using Deref trait and type corecion.
 //
-// Using reference is more efficent. Using String for message
+// Using reference is more efficient. Using String for message
 // means the program must copy the value. When using a reference
 // such as &str, no copy is made.
 //////////////////////////////////////////////////////////
@@ -90,7 +90,7 @@ mod test {
     #[test]
     fn test_str_in_struct() {
         let name = "str_in_struct";
-        let person_manually_created = Person { name: name };
+        let person_manually_created = Person { name };
         let person_new = Person::new(name);
 
         person_manually_created.greet();
