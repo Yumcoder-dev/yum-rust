@@ -1,10 +1,10 @@
 mod test {
-    fn baz() -> Result<(), ()> {
+    #[allow(dead_code)]
+    fn baz() {
         println!("in baz");
-        Ok(())
     }
-
-    fn bar() -> Result<(), ()> {
+    #[allow(dead_code)]
+    fn bar() {
         // These don't need to be defined inside the function.
         struct Foo;
 
@@ -18,9 +18,7 @@ mod test {
         // The dtor of _exit will run however the function `bar` is exited.
         let _exit = Foo;
         // Implicit return with `?` operator.
-        baz()?;
-        // Normal return.
-        Ok(())
+        baz();
     }
 
     #[test]

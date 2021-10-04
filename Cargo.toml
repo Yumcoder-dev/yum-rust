@@ -22,3 +22,8 @@ harness = false
 name = "concatenating_string"
 path = "./src/rust_lang/concatenating_string.rs"
 harness = false
+
+[[bench]]
+name = "command_bench"
+path = "./src/design_pattern/behavioral/command_bench.rs"
+harness = false

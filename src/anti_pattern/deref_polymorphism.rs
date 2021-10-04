@@ -16,6 +16,7 @@ mod tests {
     struct Foo {}
 
     impl Foo {
+        #[allow(dead_code)]
         fn m(&self) {
             println!("call m!")
         }
