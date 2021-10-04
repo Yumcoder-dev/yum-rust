@@ -27,3 +27,8 @@ harness = false
 name = "command_bench"
 path = "./src/design_pattern/behavioral/command_bench.rs"
 harness = false
+
+[[bench]]
+name = "flow_control_bench"
+path = "./src/rust_lang/flow_control_bench.rs"
+harness = false

@@ -1,8 +1,9 @@
 mod default_trait;
 mod finally;
+mod flow_control;
+mod functional;
 mod inline_fn;
 mod nightly;
-mod simple_bench;
 mod option;
+mod simple_bench;
 mod temp_mut;
-mod functional;
