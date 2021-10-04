@@ -5,3 +5,4 @@ mod nightly;
 mod simple_bench;
 mod option;
 mod temp_mut;
+mod functional;
