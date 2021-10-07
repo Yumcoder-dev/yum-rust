@@ -10,6 +10,10 @@ criterion = "0.3"
 regex = "1.5"
 clap = "2.33.3"
 
+[[example]]
+name = "file_line"
+path = "examples/file/file_line.rs"
+
 [[bench]]
 name = "simple_bench"
 path = "./src/rust_lang/simple_bench.rs"

@@ -127,25 +127,42 @@ mod tests {
     #[test]
     fn test_clone_vec() {
         //
-        //           Stack                    Heap
-        //      ----------------            -------
-        //     | buffer pointer |--------->|   1   |
-        //  v: |----------------|          |   2   |
-        //     |  capacity (4)  |          |   3   |
-        //     |    len (4)     |          |   4   |
-        //      ----------------            -------
+        //           Stack                     Heap
+        //      ----------------             -------
+        //     | buffer pointer |---------->|   1   |
+        //  v: |----------------|     |     |   2   |
+        //     |  capacity (4)  |     |     |   3   |
+        //     |    len (4)     |     |     |   4   |
+        //      ----------------      |      -------
         //     | buffer pointer | ----
-        // v1: |----------------|     |     -------
-        //     |  capacity (4)  |      --> |   1   |
-        //     |    len (4)     |          |   2   |
-        //      ----------------           |   3   |
-        //                                 |   4   |
-        //                                  -------
+        // v1: |----------------|
+        //     |  capacity (4)  |
+        //     |    len (4)     |
+        //      ----------------
         //
         // Vec implements Clone, but not Copy
-        let v = vec![10, 20, 30, 40, 50];
-        let v1 = v.clone(); // ok since Vec implements Clone
-                            // println!("v: {:p}, v1:{:p}", &v, &v1);
+        let mut v = vec![10, 20, 30, 40, 50];
+        v[0] = 100;
+        let mut v1 = v.clone(); // ok since Vec implements Clone
+                                // v1[2] = 300; // uncomment and draw the model again :), smart copy!
+                                //
+                                //           Stack                    Heap
+                                //      ----------------            -------
+                                //     | buffer pointer |--------->|  100  |
+                                //  v: |----------------|          |   2   |
+                                //     |  capacity (4)  |          |   3   |
+                                //     |    len (4)     |          |   4   |
+                                //      ----------------            -------
+                                //     | buffer pointer | ----
+                                // v1: |----------------|     |     -------
+                                //     |  capacity (4)  |      --> |   1   |
+                                //     |    len (4)     |          |   2   |
+                                //      ----------------           |  300  |
+                                //                                 |   4   |
+                                //                                  -------
+
+        println!("v: {:p}, v1:{:p}", &v, &v1);
+        println!("v: {:?}, v1:{:?}", v, v1);
         assert_eq!(v, v1);
     }
 }
