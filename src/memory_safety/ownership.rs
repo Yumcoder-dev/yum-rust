@@ -1,4 +1,26 @@
 // When you create a new object in Rust, the assigned variable becomes the owner of the object.
+//
+// ownership provides a route to memory safety without needing a garbage collector
+//
+// There are two ways to shift ownership from one variable to another within a Rust program.
+// 1) The first is by assignment.
+// 2) The second is by passing data through a function barrier, either as an argument or a return value
+//
+// fn f1(arg){ <-----
+//    // ...        |
+// }                |  in this function call pass parameter means that arg = a; so arg is the new owner
+// ...              |
+// let a = ...;     |
+// f1(a);    --------
+//
+// Four general strategies can help with ownership issues
+// - Use references where full ownership is not required.
+//     fn send(to: CubeSat, msg: Message) {                 fn send(to: &mut CubeSat, msg: Message) {
+//         to.mailbox.messages.push(msg);           ---->    to.mailbox.messages.push(msg);
+//     }                                                    }
+// - Duplicate the value (Copy and Clone traits)
+// - Refactor code to reduce the number of long-lived objects.
+// - Wrap your data in a type designed to assist with movement issues (RC, ARC, RefCell)
 
 mod test {
     #[allow(dead_code)]

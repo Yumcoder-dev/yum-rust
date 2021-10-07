@@ -129,6 +129,9 @@ mod test {
 
     #[test]
     fn fat_pointer_size() {
+        // The term fat pointer refers to memory layout. Thin pointers, such as
+        // raw pointers, are a single usize wide. Fat pointers are usually two usize wide,
+        // and occasionally more.
         assert_eq!(8, size_of::<&i32>());
         assert_eq!(16, size_of::<&[i32]>()); // 8 + 8 (buffer pointer + len)
     }

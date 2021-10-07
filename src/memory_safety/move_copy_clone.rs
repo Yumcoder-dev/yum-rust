@@ -1,3 +1,8 @@
+//      Cloning (std::clone::Clone)                                                                 Copying (std::marker::Copy)
+// May be slow and expensive.                                                               Always fast and cheap (expect arbitrarily large types, such as String)
+// Never implicit. A call to the .clone() method always required (developer).               Always implicit (compiler).
+// May differ from original. Crate authors define what cloning means for their types.       Always identical. Copies are bit-for-bit duplicates
+
 // Move
 // assigning one variable to another transfers the ownership to the assignee
 //     1) let v:Vec<i32> = Vec::new();
@@ -59,7 +64,7 @@
 //      //s moved into the enum
 //      let nos = NothingOrString::Str(s);
 //
-
+//
 // Copies
 // types which do not own other resources and can be bitwise copied are called Copy types.
 // They implement the Copy marker trait. All primitive types like integers, floats and characters are Copy.
@@ -144,7 +149,7 @@ mod tests {
         let mut v = vec![10, 20, 30, 40, 50];
         v[0] = 100;
         let mut v1 = v.clone(); // ok since Vec implements Clone
-                                // v1[2] = 300; // uncomment and draw the model again :), smart copy!
+                                // v1[2] = 300; // uncomment and draw the model again :), smart copy (copy on write)!
                                 //
                                 //           Stack                    Heap
                                 //      ----------------            -------

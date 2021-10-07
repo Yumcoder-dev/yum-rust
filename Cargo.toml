@@ -9,10 +9,17 @@ edition = "2018"
 criterion = "0.3"
 regex = "1.5"
 clap = "2.33.3"
+piston_window = "0.120.0"
+piston2d-graphics = "0.40.0"
+rand = "0.8" 
 
 [[example]]
 name = "file_line"
 path = "examples/file/file_line.rs"
+
+[[example]]
+name = "heap_mem"
+path = "examples/heap_mem/app.rs"
 
 [[bench]]
 name = "simple_bench"

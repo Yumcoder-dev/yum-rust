@@ -11,3 +11,4 @@ mod option;
 mod return_type;
 mod simple_bench;
 mod temp_mut;
+mod bit_pattern;

@@ -149,4 +149,8 @@ It is the same with books. What do we seek through millions of pages?";
             }
         }
     }
+
+    // fn is_strong<T: AsRef<str>>(password: T) -> bool {
+    //     password.as_ref().len() > 5
+    // }
 }
