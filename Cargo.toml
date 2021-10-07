@@ -12,6 +12,11 @@ clap = "2.33.3"
 piston_window = "0.120.0"
 piston2d-graphics = "0.40.0"
 rand = "0.8" 
+bincode = "1"
+serde = "1"
+serde_cbor = "0.11.2"
+serde_derive = "1"
+serde_json = "1"
 
 [[example]]
 name = "file_line"

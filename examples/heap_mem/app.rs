@@ -16,6 +16,9 @@ static ALLOCATOR: ReportingAllocator = ReportingAllocator;
 struct ReportingAllocator;
 
 // implements proxy/middleware for heap memory allocation
+// Plotting heap allocation times against allocation size shows that there is no clear
+// relationship between the two. The time taken to allocate memory is essentially unpredictable,
+// even when requesting the same amount of memory multiple times.
 unsafe impl GlobalAlloc for ReportingAllocator {
     unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
         let start = Instant::now();
@@ -147,6 +150,8 @@ impl World {
         self.current_turn += 1;
     }
 }
+
+// cargo run -q 2> alloc.tsv
 
 fn main() {
     let (width, height) = (1280.0, 960.0);
