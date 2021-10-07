@@ -19,6 +19,8 @@ serde_derive = "1.0.130"
 serde_json = "1.0.68"
 byteorder="1.4.3"
 crc="1.7"
+reqwest = { version = "0.11", features = ["json"] }
+tokio = { version = "1", features = ["full"] }
 
 # example multiple bin
 # [[bin]]
