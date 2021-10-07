@@ -59,7 +59,7 @@ mod tests {
         let y1 = Box::new(84);
         {
             // starts a new scope
-            let z = (x1, y1);
+            let _z = (x1, y1);
             // z goes out of scope, and is dropped;
             // it in turn drops the values from x1 and y1
         }

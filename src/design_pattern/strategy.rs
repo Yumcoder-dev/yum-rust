@@ -7,9 +7,11 @@ mod test {
         fn format(&self, data: &Data, buf: &mut String);
     }
 
+    #[allow(dead_code)]
     struct Report;
 
     impl Report {
+        #[allow(dead_code)]
         // Write should be used but we kept it as String to ignore error handling
         fn generate<T: Formatter>(g: T, s: &mut String) {
             // backend operations...

@@ -66,7 +66,7 @@ mod tests {
     #[test]
     fn test_iter() {
         // let container = vec![1, 2, 3, 4, 5, 6, 7, 8, 9];
-        let mut container = vec![1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let container = vec![1, 2, 3, 4, 5, 6, 7, 8, 9];
         for item in container {
             // access Ownership
             println!("{}", item);
@@ -101,5 +101,16 @@ mod tests {
         //     *item += 2;
         //     println!("{}", item);
         // }
+    }
+
+    #[test]
+    fn test_match() {
+        let item = 100;
+        match item {
+            0 => {}       // To match a single value, provide the value. No operator is required.
+            10..=20 => {} // The ..= syntax matches an inclusive range.
+            40 | 80 => {} // The vertical bar (|) matches values on either side of it.
+            _ => {}       // The underscore (_) matches every value.
+        }
     }
 }

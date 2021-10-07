@@ -15,6 +15,8 @@
 //////////////////////////////////////////////////////////
 mod test {
     #[allow(unused_imports)]
+    use regex::Regex;
+    #[allow(unused_imports)]
     use std::str::FromStr;
 
     #[allow(dead_code)]
@@ -98,5 +100,53 @@ mod test {
 
         // println!("My name is {}", name); // see above example
         assert_eq!(name, "str_in_struct");
+    }
+
+    #[test]
+    fn test_string_lines_with_line_num() {
+        let search_term = "picture";
+        let quote = "\
+Every face, every shop, bedroom window, public-house, and
+dark square is a picture feverishly turned--in search of what?
+It is the same with books. What do we seek through millions of pages?";
+
+        let mut line_num: usize = 1;
+        for line in quote.lines() {
+            if line.contains(search_term) {
+                println!("{}: {}", line_num, line);
+            }
+            line_num += 1;
+        }
+    }
+
+    #[test]
+    fn test_string_lines_with_line_num_more_economic() {
+        let search_term = "picture";
+        let quote = "\
+Every face, every shop, bedroom window, public-house, and
+dark square is a picture feverishly turned--in search of what?
+It is the same with books. What do we seek through millions of pages?";
+        for (i, line) in quote.lines().enumerate() {
+            if line.contains(search_term) {
+                let line_num = i + 1;
+                println!("{}: {}", line_num, line);
+            }
+        }
+    }
+
+    #[test]
+    fn test_string_lines_with_regex() {
+        let re = Regex::new("picture").unwrap();
+        let quote = "\
+Every face, every shop, bedroom window, public-house, and
+dark square is a picture feverishly turned--in search of what?
+It is the same with books. What do we seek through millions of pages?";
+        for line in quote.lines() {
+            let contains_substring = re.find(line);
+            match contains_substring {
+                Some(_) => println!("{}", line),
+                None => (),
+            }
+        }
     }
 }
