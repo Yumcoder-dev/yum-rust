@@ -1,7 +1,10 @@
 // uncomment the following bench
 // #![feature(test)]
+#[macro_use]
+extern crate crossbeam;
 
 mod anti_pattern;
+mod concurrency;
 mod design_pattern;
 mod memory_safety;
 mod rust_lang;

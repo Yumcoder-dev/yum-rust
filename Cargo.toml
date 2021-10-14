@@ -21,6 +21,8 @@ byteorder="1.4.3"
 crc="1.7"
 reqwest = { version = "0.11", features = ["json"] }
 tokio = { version = "1", features = ["full"] }
+trust-dns = { version = "0.16", default-features = false }
+crossbeam="0.8.1"
 
 # example multiple bin
 # [[bin]]
@@ -42,6 +44,10 @@ path = "examples/heap_mem/app.rs"
 [[example]]
 name = "yum_db"
 path = "examples/yum_db/app.rs"
+
+[[example]]
+name = "cdn_resolve"
+path = "examples/cdn_resolve.rs"
 
 [[bench]]
 name = "simple_bench"
