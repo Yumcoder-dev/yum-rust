@@ -1,2 +1,3 @@
 pub mod spawning_thread;
-mod channel;
+mod msg_passing_channel;
+mod threads_with_shared_memory;

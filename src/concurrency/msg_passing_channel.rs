@@ -45,4 +45,42 @@ mod test {
             }
         }
     }
+
+    #[test]
+    fn test_channel_multiple_producer_single_consumer() {
+        let (tx, rx) = std::sync::mpsc::channel();
+
+        let tx1 = tx.clone();
+        std::thread::spawn(move || {
+            let vals = vec![
+                String::from("hi"),
+                String::from("from"),
+                String::from("the"),
+                String::from("thread"),
+            ];
+
+            for val in vals {
+                tx1.send(val).unwrap();
+                std::thread::sleep(std::time::Duration::from_secs(1));
+            }
+        });
+
+        std::thread::spawn(move || {
+            let vals = vec![
+                String::from("more"),
+                String::from("messages"),
+                String::from("for"),
+                String::from("you"),
+            ];
+
+            for val in vals {
+                tx.send(val).unwrap();
+                std::thread::sleep(std::time::Duration::from_secs(1));
+            }
+        });
+
+        for received in rx {
+            println!("Got: {}", received);
+        }
+    }
 }
