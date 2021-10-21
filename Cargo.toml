@@ -38,6 +38,10 @@ name = "file_line"
 path = "examples/file/file_line.rs"
 
 [[example]]
+name = "std_tcp"
+path = "examples/std_tcp/app.rs"
+
+[[example]]
 name = "heap_mem"
 path = "examples/heap_mem/app.rs"
 
