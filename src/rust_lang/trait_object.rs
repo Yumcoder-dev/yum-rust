@@ -3,11 +3,11 @@
 // offer polymorphism via static dispatch. Choosing between generics and type objects
 // typically involves a trade off between disk space and time:
 //  - Generics use more disk space with faster run times.
-//  - Trait objects use less disk space but incur a small runtime overhead caused by
-// pointer indirection.
+//  - Trait objects use less disk space but incur a small runtime overhead caused by pointer indirection.
 // Trait objects are dynamically-sized types, which means that these are always seen in the
-// wild behind a pointer. Trait objects appear in three forms: &dyn Trait, &mut dyn
-// Trait, and Box<dyn Trait>.1 The primary difference between the three forms is that
+// wild behind a pointer. Trait objects appear in three forms: &dyn Trait, &mut dyn Trait,
+// and Box<dyn Trait>.
+// 1-> The primary difference between the three forms is that
 // Box<dyn Trait> is an owned trait object, whereas the other two are borrowed.
 //
 // why dyn is really needed?

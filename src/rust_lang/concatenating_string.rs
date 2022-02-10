@@ -12,7 +12,7 @@ fn concatenating_with_push(name: &str) -> String {
 }
 
 fn criterion_concatenating_string(c: &mut Criterion) {
-    let mut group = c.benchmark_group("Fibonacci");
+    let mut group = c.benchmark_group("concatenating_string_benchmark");
     for i in ["yumcoder", "data", "programming"].iter() {
         group.bench_with_input(
             BenchmarkId::new("concatenating_with_format", i),

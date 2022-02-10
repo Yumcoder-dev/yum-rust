@@ -36,6 +36,7 @@ mod test {
         let str = "hello world";
         print_me_str(str);
         let owned_string = "hello world".to_string(); // or String::from_str("hello world")
+        let strFrom =  String::from("hello world");
         print_me_str(&owned_string);
 
         let counted_string = std::rc::Rc::new("hello world".to_string());
@@ -71,11 +72,13 @@ mod test {
 
     #[test]
     fn test_string_pass_to_struct() {
-        let from_str_name = String::from_str("Yumcoder").unwrap();
+        let mut from_str_name = String::from_str("Yumcoder").unwrap();
         // let owned_str_name = "Yumcoder".to_owned();
         let person = Person {
             name: &from_str_name,
         };
+        //from_str_name.push_str("string");
+        // drop(from_str_name)
         person.greet();
         // struct Person {
         //     name: String,
@@ -98,7 +101,7 @@ mod test {
         person_manually_created.greet();
         person_new.greet();
 
-        // println!("My name is {}", name); // see above example
+        //println!("My name is {}", name); // see above example
         assert_eq!(name, "str_in_struct");
     }
 

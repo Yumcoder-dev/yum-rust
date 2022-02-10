@@ -51,7 +51,7 @@ fn test_for_read_write() {
 
 #[allow(dead_code)]
 fn criterion_benchmark_for(c: &mut Criterion) {
-    let mut group = c.benchmark_group("test_for_read_only");
+    let mut group = c.benchmark_group("test_for_read_only_benchmark");
     group.bench_function("test_for_ownership", |b| b.iter(|| test_for_ownership()));
     group.bench_function("test_for_readonly", |b| b.iter(|| test_for_readonly()));
     group.bench_function("test_for_read_write", |b| b.iter(|| test_for_read_write()));
@@ -60,7 +60,7 @@ fn criterion_benchmark_for(c: &mut Criterion) {
 
 #[allow(dead_code)]
 fn criterion_benchmark_let(c: &mut Criterion) {
-    let mut group = c.benchmark_group("test_let_match");
+    let mut group = c.benchmark_group("test_let_match_benchmark");
     group.bench_function("test_let_match", |b| b.iter(|| test_let_match()));
     group.bench_function("test_let_if", |b| b.iter(|| test_let_if()));
     group.finish();

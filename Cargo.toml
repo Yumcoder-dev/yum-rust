@@ -18,11 +18,13 @@ serde_cbor = "0.11.2"
 serde_derive = "1.0.130"
 serde_json = "1.0.68"
 byteorder="1.4.3"
-crc="1.7"
+crc="2.0.0"
 reqwest = { version = "0.11", features = ["json"] }
-tokio = { version = "1", features = ["full"] }
-trust-dns = { version = "0.16", default-features = false }
+tokio = { version = "1.12.0", features = ["full"] }
+trust-dns = { version = "0.20.3", default-features = false }
 crossbeam="0.8.1"
+bytes = "1"
+async-stream = "0.3.2"
 
 # example multiple bin
 # [[bin]]
@@ -36,6 +38,10 @@ crossbeam="0.8.1"
 [[example]]
 name = "file_line"
 path = "examples/file/file_line.rs"
+
+[[example]]
+name = "yum_tokio"
+path = "examples/yum_tokio/mini_redis.rs"
 
 [[example]]
 name = "std_tcp"

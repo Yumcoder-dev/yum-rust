@@ -22,7 +22,7 @@ fn inline_never() {
 
 #[allow(unused)]
 fn criterion_inline(c: &mut Criterion) {
-    let mut group = c.benchmark_group("Fibonacci");
+    let mut group = c.benchmark_group("inline_benchmark");
     group.bench_function("inline_always", |b| b.iter(|| inline_always()));
     group.bench_function("inline_never", |b| b.iter(|| inline_never()));
     group.finish();
