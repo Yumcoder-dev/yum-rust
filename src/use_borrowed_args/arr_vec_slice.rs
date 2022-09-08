@@ -1,3 +1,4 @@
+// also see https://stackoverflow.com/questions/27859822/is-it-possible-to-have-stack-allocated-arrays-with-the-size-determined-at-runtim
 mod test {
     #[allow(unused)]
     use std::mem::{size_of, size_of_val};
@@ -117,7 +118,7 @@ mod test {
         // in addition to a pointer to the second element in v's buffer,
         // s also has an 8 byte length field with value 2
         let s = &arr[1..3];
-       
+
         // The [1..3] syntax creates a range from index 1 (inclusive) to 3 (exclusive).
         // If you omit the first number in the range ([..3]) it defaults to zero and
         // if you omit the last number ([1..]) it defaults to the length of the array.
