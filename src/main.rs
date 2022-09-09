@@ -1,5 +1,8 @@
 // uncomment the following bench
 // #![feature(test)]
+
+#![feature(log_syntax)]
+
 #[macro_use]
 extern crate crossbeam;
 
